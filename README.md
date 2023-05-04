@@ -98,3 +98,13 @@ XXX IMPORTANT! USE THIS SPACE FOR THE SCHEDULE WE END UP MAKING IN CLASS AND ADD
 | Mon. 2/20 |      |
 | Wed. 2/22 |      |
 | Sat. 2/25 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
+
+
+
+
+
+
+
+
+Royalty Free Music: Bensound.com/royalty-free-music
+License code: LDWMYXFBRUMBIDGO

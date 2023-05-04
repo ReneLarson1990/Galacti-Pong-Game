@@ -36,7 +36,7 @@ if (e.key == 'Enter') {
     }
 }
 if (gameState == 'play') {
-    if (e.key == 'w') {
+    if (e.key == '') {
     paddle_1.style.top =
         Math.max(
         board_coord.top,
@@ -44,7 +44,7 @@ if (gameState == 'play') {
         ) + 'px';
     paddle_1_coord = paddle_1.getBoundingClientRect();
     }
-    if (e.key == 's') {
+    if (e.key == '') {
     paddle_1.style.top =
         Math.min(
         board_coord.bottom - paddle_common.height,
@@ -79,6 +79,7 @@ let paddle_1_center = paddle_1_coord.top + (paddle_common.height / 2);
   // Determine whether to move the paddle up or down
   let shouldMoveUp = Math.random() < 0.5;
   let shouldMoveDown = Math.random() < 0.5;
+//   let shouldMoveDown = Math.random() < 0.5;
 
   // Add some randomness to the paddle's position
   let moveAmount = window.innerHeight * 0.2 * Math.random();
@@ -101,31 +102,40 @@ let paddle_1_center = paddle_1_coord.top + (paddle_common.height / 2);
   // Update the paddle's position
   paddle_1_coord = paddle_1.getBoundingClientRect();
 
-  
-
-
-
-
 if (ball_coord.top <= board_coord.top) {
     dyd = 1;
 }
 if (ball_coord.bottom >= board_coord.bottom) {
     dyd = 0;
 }
+
+let paddle1HitSound = document.querySelector('#paddle1HitSound');
+
 if (
     ball_coord.left <= paddle_1_coord.right &&
     ball_coord.top >= paddle_1_coord.top &&
     ball_coord.bottom <= paddle_1_coord.bottom
 ) {
+    paddle1HitSound.currentTime = 0;
+    paddle1HitSound.play();
+    
+
     dxd = 1;
     dx = Math.floor(Math.random() * 4) + 3;
     dy = Math.floor(Math.random() * 4) + 3;
 }
+
+let paddle2HitSound = document.querySelector('#paddle2HitSound');
+
 if (
     ball_coord.right >= paddle_2_coord.left &&
     ball_coord.top >= paddle_2_coord.top &&
     ball_coord.bottom <= paddle_2_coord.bottom
 ) {
+    paddle2HitSound.currentTime = 0;
+    paddle2HitSound.play();
+
+
     dxd = 0;
     dx = Math.floor(Math.random() * 4) + 3;
     dy = Math.floor(Math.random() * 4) + 3;
@@ -140,9 +150,10 @@ if (
     score_1.innerHTML = +score_1.innerHTML + 1;
     }
     gameState = 'start';
-  
+    
     ball_coord = initial_ball_coord;
     ball.style = initial_ball.style;
+
     message.innerHTML = 'Press Enter to Play';
     message.style.left = 38 + 'vw';
     return;
@@ -153,4 +164,13 @@ ball_coord = ball.getBoundingClientRect();
 requestAnimationFrame(() => {
     moveBall(dx, dy, dxd, dyd);
 });
+
+
 }
+
+const bgMusic = new Audio('/Assests/birthofahero.mp3');
+
+bgMusic.loop = true;
+bgMusic.volume = 0.5;
+bgMusic.play();
+
