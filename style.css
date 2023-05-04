@@ -4,22 +4,29 @@
   box-sizing: border-box;
 }
 
+.game {
+  position: fixed;
+  top:15px;
+  font-size: 80px;
+  color: limegreen;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
 body {
-  height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(
-          to top, #ffda77, #ffa45b);
+  background-image:url(./Assests/Galaxy\ Image\ made\ by\ MADSTAX.png) ;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .board {
+  margin-top: 120px;
   height: 85vh;
   width: 80vw;
-  background-image: linear-gradient(
-          to right, #5c6e91, #839b97);
-  border-radius: 14px;
+  border:solid 5px purple;
 }
 
 .ball {
@@ -102,11 +109,25 @@ body {
 }
 
 .message {
+  text-align:center;
   position: fixed;
-  /* color: #48426d; */
   height: 10vh;
   width: 30vw;
-  color: #c9cbff;
+  color: Limegreen;
   left: 38vw;
   margin: 30px auto auto auto;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #de00e6, 0 0 40px #de00e6, 0 0 50px #de00e6, 0 0 60px #de00e6, 0 0 70px #de00e6;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #7a02c0, 0 0 40px #ff4da6, 0 0 50px #7a02c0, 0 0 60px #7a02c0, 0 0 70px #ff4da6, 0 0 80px #7a02c0;
+  }
+}
+
+

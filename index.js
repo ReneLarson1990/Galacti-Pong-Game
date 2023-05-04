@@ -15,22 +15,22 @@ let board_coord = board.getBoundingClientRect();
 let paddle_common =
     document.querySelector('.paddle').getBoundingClientRect();
   
-let dx = Math.floor(Math.random() * 4) + 3;
-let dy = Math.floor(Math.random() * 4) + 3;
-let dxd = Math.floor(Math.random() * 2);
-let dyd = Math.floor(Math.random() * 2);
+let dx = Math.floor(Math.random() * 4) + 2;
+let dy = Math.floor(Math.random() * 4) + 2;
+let dxd = Math.floor(Math.random() * 1);
+let dyd = Math.floor(Math.random() * 1);
   
 document.addEventListener('keydown', (e) => {
 if (e.key == 'Enter') {
     gameState = gameState == 'start' ? 'play' : 'start';
     if (gameState == 'play') {
     message.innerHTML = 'Game Started';
-    message.style.left = 42 + 'vw';
+    message.style.left = 40 + 'vw';
     requestAnimationFrame(() => {
-        dx = Math.floor(Math.random() * 4) + 3;
-        dy = Math.floor(Math.random() * 4) + 3;
-        dxd = Math.floor(Math.random() * 2);
-        dyd = Math.floor(Math.random() * 2);
+        dx = Math.floor(Math.random() * 4) + 2;
+        dy = Math.floor(Math.random() * 4) + 2;
+        dxd = Math.floor(Math.random() * 1);
+        dyd = Math.floor(Math.random() * 1);
         moveBall(dx, dy, dxd, dyd);
     });
     }
@@ -40,7 +40,7 @@ if (gameState == 'play') {
     paddle_1.style.top =
         Math.max(
         board_coord.top,
-        paddle_1_coord.top - window.innerHeight * 0.06
+        paddle_1_coord.top - window.innerHeight * 0.03
         ) + 'px';
     paddle_1_coord = paddle_1.getBoundingClientRect();
     }
@@ -48,7 +48,7 @@ if (gameState == 'play') {
     paddle_1.style.top =
         Math.min(
         board_coord.bottom - paddle_common.height,
-        paddle_1_coord.top + window.innerHeight * 0.06
+        paddle_1_coord.top + window.innerHeight * 0.03
         ) + 'px';
     paddle_1_coord = paddle_1.getBoundingClientRect();
     }
@@ -73,6 +73,39 @@ if (gameState == 'play') {
 });
   
 function moveBall(dx, dy, dxd, dyd) {
+
+let paddle_1_center = paddle_1_coord.top + (paddle_common.height / 2);
+
+  // Determine whether to move the paddle up or down
+  let shouldMoveUp = Math.random() < 0.5;
+  let shouldMoveDown = Math.random() < 0.5;
+
+  // Add some randomness to the paddle's position
+  let moveAmount = window.innerHeight * 0.2 * Math.random();
+  if (shouldMoveUp) {
+    // Move the paddle up
+    paddle_1.style.top =
+      Math.max(
+        board_coord.top,
+        paddle_1_coord.top - moveAmount
+      ) + 'px';
+  } else {
+    // Move the paddle down
+    paddle_1.style.top =
+      Math.min(
+        board_coord.bottom - paddle_common.height,
+        paddle_1_coord.top + moveAmount
+      ) + 'px';
+  }
+
+  // Update the paddle's position
+  paddle_1_coord = paddle_1.getBoundingClientRect();
+
+  
+
+
+
+
 if (ball_coord.top <= board_coord.top) {
     dyd = 1;
 }
@@ -110,7 +143,7 @@ if (
   
     ball_coord = initial_ball_coord;
     ball.style = initial_ball.style;
-    message.innerHTML = 'Press Enter to Play Pong';
+    message.innerHTML = 'Press Enter to Play';
     message.style.left = 38 + 'vw';
     return;
 }
