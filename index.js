@@ -25,7 +25,7 @@ if (e.key == 'Enter') {
     gameState = gameState == 'start' ? 'play' : 'start';
     if (gameState == 'play') {
     message.innerHTML = 'Game Started';
-    message.style.left = 40 + 'vw';
+    message.style.center = 50 + 'vw';
     requestAnimationFrame(() => {
         dx = Math.floor(Math.random() * 4) + 2;
         dy = Math.floor(Math.random() * 4) + 2;
@@ -118,6 +118,7 @@ if (
 ) {
     paddle1HitSound.currentTime = 0;
     paddle1HitSound.play();
+    paddle1HitSound.volume = 0.2;
     
 
     dxd = 1;
@@ -134,6 +135,7 @@ if (
 ) {
     paddle2HitSound.currentTime = 0;
     paddle2HitSound.play();
+    paddle2HitSound.volume = 0.2;
 
 
     dxd = 0;
@@ -149,13 +151,26 @@ if (
     } else {
     score_1.innerHTML = +score_1.innerHTML + 1;
     }
+
+    if (ball_coord.left <= board_coord.left || ball_coord.right >= board_coord.right) {
+        if (ball_coord.left <= board_coord.left) {
+          score_2.innerHTML = +score_2.innerHTML + 1;
+          document.getElementById('player2ScoreSound').play();
+          player2ScoreSound.volume = 0.3;
+        } else {
+          score_1.innerHTML = +score_1.innerHTML + 1;
+          document.getElementById('player1ScoreSound').play();
+          player1ScoreSound.volume = 0.3;
+        }
+      }
+
     gameState = 'start';
     
     ball_coord = initial_ball_coord;
     ball.style = initial_ball.style;
 
     message.innerHTML = 'Press Enter to Play';
-    message.style.left = 38 + 'vw';
+    message.style.center = 50 + 'vw';
     return;
 }
 ball.style.top = ball_coord.top + dy * (dyd == 0 ? -1 : 1) + 'px';
@@ -164,23 +179,21 @@ ball_coord = ball.getBoundingClientRect();
 requestAnimationFrame(() => {
     moveBall(dx, dy, dxd, dyd);
 });
-
+}
 //obstacles codes 
 
 
-}
-
-
-
-
-
+// background music 
 function AutoPlayBackgroundMusic() {
     let bgMusic = new Audio('./Assests/birthofahero.mp3');
     bgMusic.loop = true;
-    bgMusic.volume = 0.2;
+    bgMusic.volume = 0.1;
     bgMusic.play();
 }
 
   window.addEventListener('load', AutoPlayBackgroundMusic);
+
+
+
 
 
