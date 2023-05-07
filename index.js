@@ -165,12 +165,22 @@ requestAnimationFrame(() => {
     moveBall(dx, dy, dxd, dyd);
 });
 
+//obstacles codes 
+
 
 }
 
-const bgMusic = new Audio('/Assests/birthofahero.mp3');
 
-bgMusic.loop = true;
-bgMusic.volume = 0.5;
-bgMusic.play();
+
+
+
+function AutoPlayBackgroundMusic() {
+    let bgMusic = new Audio('./Assests/birthofahero.mp3');
+    bgMusic.loop = true;
+    bgMusic.volume = 0.2;
+    bgMusic.play();
+}
+
+  window.addEventListener('load', AutoPlayBackgroundMusic);
+
 
