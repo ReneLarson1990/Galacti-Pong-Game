@@ -189,9 +189,13 @@ function AutoPlayBackgroundMusic() {
     bgMusic.loop = true;
     bgMusic.volume = 0.1;
     bgMusic.play();
-}
-
-  window.addEventListener('load', AutoPlayBackgroundMusic);
+  }
+  
+  document.addEventListener('keydown', function(event) {
+    if (event.code === 'Enter') {
+      AutoPlayBackgroundMusic();
+    }
+  });
 
 
 
