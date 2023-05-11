@@ -12,9 +12,7 @@ let paddle_2_coord = paddle_2.getBoundingClientRect();
 let initial_ball_coord = ball.getBoundingClientRect();
 let ball_coord = initial_ball_coord;
 let board_coord = board.getBoundingClientRect();
-let paddle_common =
-    document.querySelector('.paddle').getBoundingClientRect();
-  
+let paddle_common = document.querySelector('.paddle').getBoundingClientRect();   
 let dx = Math.floor(Math.random() * 4) + 2;
 let dy = Math.floor(Math.random() * 4) + 2;
 let dxd = Math.floor(Math.random() * 1);
@@ -79,7 +77,7 @@ let paddle_1_center = paddle_1_coord.top + (paddle_common.height / 2);
   // Determine whether to move the paddle up or down
   let shouldMoveUp = Math.random() < 0.5;
   let shouldMoveDown = Math.random() < 0.5;
-//   let shouldMoveDown = Math.random() < 0.5;
+
 
   // Add some randomness to the paddle's position
   let moveAmount = window.innerHeight * 0.2 * Math.random();
@@ -142,27 +140,20 @@ if (
     dx = Math.floor(Math.random() * 4) + 3;
     dy = Math.floor(Math.random() * 4) + 3;
 }
+//scoring code 
 if (
     ball_coord.left <= board_coord.left ||
     ball_coord.right >= board_coord.right
 ) {
     if (ball_coord.left <= board_coord.left) {
     score_2.innerHTML = +score_2.innerHTML + 1;
+    document.getElementById('player2ScoreSound').play();
+    player2ScoreSound.volume = 0.3;
     } else {
     score_1.innerHTML = +score_1.innerHTML + 1;
+    document.getElementById('player1ScoreSound').play();
+    player1ScoreSound.volume = 0.3;
     }
-
-    if (ball_coord.left <= board_coord.left || ball_coord.right >= board_coord.right) {
-        if (ball_coord.left <= board_coord.left) {
-          score_2.innerHTML = +score_2.innerHTML + 1;
-          document.getElementById('player2ScoreSound').play();
-          player2ScoreSound.volume = 0.3;
-        } else {
-          score_1.innerHTML = +score_1.innerHTML + 1;
-          document.getElementById('player1ScoreSound').play();
-          player1ScoreSound.volume = 0.3;
-        }
-      }
 
     gameState = 'start';
     
@@ -192,7 +183,7 @@ function AutoPlayBackgroundMusic() {
   }
   
   document.addEventListener('keydown', function(event) {
-    if (event.code === 'Enter') {
+    if (event.code === 'Space') {
       AutoPlayBackgroundMusic();
     }
   });
