@@ -165,27 +165,36 @@ body {
   font-family: 'pdark';
   src: url('./Assests/pdark.ttf');
 } 
+@font-face {
+  font-family: 'racespace';
+  src: url('./Assests/RACESPACEREGULAR.otf');
+} 
 
 .gameintro {
+  margin-top: 10vh;
+  font-family: racespace;
   position:absolute;
   color:rgb(14, 165, 0) ;
   left:1px;
   width:8vw;
-  padding-top:2vh;
+  padding-top:3vh;
   margin-left: 5px;
-  height: 58vh;
+  height: 75vh;
   border: 5px solid rgb(14, 165, 0);
   background-color: black;
 }
 
 .Controls {
+  margin-top: 10vh;
+  font-family: racespace;
   position:absolute;
   color:rgb(14, 165, 0) ;
   right: 1px;
   width:8vw;
-  padding-top:2vh;
+  padding-top:7vh;
   margin-right: 5px;
-  height: 58vh;
+  height: 75vh;
   border: 5px solid rgb(14, 165, 0);
   background-color: black;
 }
+
