@@ -13,10 +13,10 @@ let initial_ball_coord = ball.getBoundingClientRect();
 let ball_coord = initial_ball_coord;
 let board_coord = board.getBoundingClientRect();
 let paddle_common = document.querySelector('.paddle').getBoundingClientRect();   
-let dx = Math.floor(Math.random() * 4) + 2;
-let dy = Math.floor(Math.random() * 4) + 2;
-let dxd = Math.floor(Math.random() * 1);
-let dyd = Math.floor(Math.random() * 1);
+let dx = Math.floor(Math.random() * 4) + 1;
+let dy = Math.floor(Math.random() * 4) + 1;
+let dxd = Math.floor(Math.random() * 2);
+let dyd = Math.floor(Math.random() * 2);
   
 document.addEventListener('keydown', (e) => {
 if (e.key == 'Enter') {
@@ -25,10 +25,10 @@ if (e.key == 'Enter') {
     message.innerHTML = 'Game Started';
     message.style.center = 50 + 'vw';
     requestAnimationFrame(() => {
-        dx = Math.floor(Math.random() * 4) + 2;
-        dy = Math.floor(Math.random() * 4) + 2;
-        dxd = Math.floor(Math.random() * 1);
-        dyd = Math.floor(Math.random() * 1);
+        dx = Math.floor(Math.random() * 4) + 5;
+        dy = Math.floor(Math.random() * 4) + 5;
+        dxd = Math.floor(Math.random() * 2);
+        dyd = Math.floor(Math.random() * 2);
         moveBall(dx, dy, dxd, dyd);
     });
     }
@@ -120,8 +120,8 @@ if (
     
 
     dxd = 1;
-    dx = Math.floor(Math.random() * 4) + 3;
-    dy = Math.floor(Math.random() * 4) + 3;
+    dx = Math.floor(Math.random() * 4) + 5;
+    dy = Math.floor(Math.random() * 4) + 5;
 }
 
 let paddle2HitSound = document.querySelector('#paddle2HitSound');
@@ -137,8 +137,8 @@ if (
 
 
     dxd = 0;
-    dx = Math.floor(Math.random() * 4) + 3;
-    dy = Math.floor(Math.random() * 4) + 3;
+    dx = Math.floor(Math.random() * 4) + 5;
+    dy = Math.floor(Math.random() * 4) + 5;
 }
 //scoring code 
 if (
@@ -172,18 +172,26 @@ requestAnimationFrame(() => {
 });
 }
 // background music 
-function AutoPlayBackgroundMusic() {
-    let bgMusic = new Audio('./Assests/birthofahero.mp3');
-    bgMusic.loop = true;
-    bgMusic.volume = 0.1;
+let isPlaying = false;
+let bgMusic = new Audio('./Assests/birthofahero.mp3');
+bgMusic.loop = true;
+bgMusic.volume = 0.1;
+
+function toggleBackgroundMusic() {
+  if (isPlaying) {
+    bgMusic.pause();
+    isPlaying = false;
+  } else {
     bgMusic.play();
+    isPlaying = true;
   }
-  
-  document.addEventListener('keydown', function(event) {
-    if (event.code === 'Space') {
-      AutoPlayBackgroundMusic();
-    }
-  });
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.code === 'Space') {
+    toggleBackgroundMusic();
+  }
+});
 
   //-------------------------------------------CODE FOR OBSTACLES/spaceJunk ---------------------------------------------------
 
@@ -211,7 +219,8 @@ function updateObstaclePosition() {
 
   // Check if the obstacle has collided with the player or ball
   if (collisionDetected(obstacle, paddle_2) || collisionDetected(obstacle, ball)) {
-    document.getElementById("collision-sound").play();
+    document.getElementById("collisionSound").play();
+    collisionSound.volume = 0.1;
     // Give a point to player 1
     score_1.innerHTML = parseInt(score_1.innerHTML) + 1;
     // Reset the obstacle
@@ -253,11 +262,12 @@ updateObstaclePosition();
 
 // constant scores saved and end game code 
 
+// let score = 0;
 // let highScore = localStorage.getItem('highScore') || 0;
 
 // function increaseScore() {
 //   score++;
-//   if (score >= 100) {
+//   if (score >= 5) {
 //     endGame();
 //   }
 //   updateScore();
@@ -276,4 +286,20 @@ updateObstaclePosition();
 //   score = 0;
 //   updateScore();
 //   // Add any other necessary reset logic here.
+// }
+
+// function updateScore() {
+//   // Update the score display.
+// }
+
+// function endGame() {
+//   if (score > highestScore) {
+//     highestScore = score;
+//     localStorage.setItem('highestScore', highestScore);
+//   }
+
+//   document.getElementById('score').textContent = score;
+//   document.getElementById('highest-score').textContent = highestScore;
+//   document.getElementById('end-game').style.display = 'block';
+//   document.getElementById('overlay').style.display = 'block';
 // }
