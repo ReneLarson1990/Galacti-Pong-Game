@@ -1,106 +1,87 @@
 # Galacti-Pong-Game
-XXX IMPORTANT! DELETE THIS LINE AND THIS SECTION (LINES 3-10) BEFORE YOU REVISE YOUR README AND SUBMIT YOUR FINAL PROJECT XXX
-
-## General Requirements
-
-- This is a solo project! (Just to clarify, you may do the same game as another student, but you may not work together.)
-- This game cannot be a game or assignment we've already done in class.
-- This game must run in a web browser.
-- This game must be tracked in Github, with a minimum of 10 commits.
-- Ideally, put your empty project up on Github on day one of development and aim for multiple commits per day.
-- This game must be deployed on Github Pages or another location.
-
-
-XXX IMPORTANT! DELETE THIS LINE AND THIS SECTION (LINES 15-26) BEFORE YOU REVISE YOUR README AND SUBMIT YOUR FINAL PROJECT XXX
-
-## Game Requirements
-
-- The game can be designed for 2 or more players (PvP) or for 1 player (PvE).
-  - The second player in a PvP game can be a person or an AI. (In this case, think of "AI" as a logical pattern.)
-  - For multi-player games, turns should switch appropriately between players
-- The game should be winnable, or it should keep score (or track player progress in a meaningful way).
-  - When a player wins or loses, the game status and/or score should display visually to the player in a way that does not rely on console.logs or alerts.
-  - If there is a valid draw (tie) condition in your chosen game, that should be implemented.
-- HTML, CSS, and JavaScript should be written in separate files.
-- Effort must be spent on styling and appearance.
-- The HTML code should use sematic tags.
-- The GitHub repository for your game should have a README.md that describes the inspiration for the game, explains the controls and how to play the game, lists the technologies used to build the game, and addresses any outstanding bugs or unfinished functionality.
-
-
-XXX IMPORTANT! DELETE THIS LINE AND THE SECTION (LINES 31-37 SO FAR) BEFORE YOU REVISE YOUR README AND SUBMIT YOUR FINAL PROJECT XXX
-
-# NYU-SD-01 Milestone Project: Planning
-
-_Before you start programming your project_... plan it!
-
-Complete the planning sections below and include them in the README.md of your project repository. Once you're done, reach out to your instructional staff -- they'll examine your plan, help you scope it appropriately for the tools available to you and think ahead toward technical solutions, and point out any areas that could use any more thought. _Use the template below!_
-
 --------
 
 ## Deployment
 
-The web game is deployed at <YOUR DEPLOYED GITHUB.IO URL GOES HERE>.
+The web game is deployed at https://renelarson1990.github.io/Galacti-Pong-Game/
+The GitHub Repo is located here at https://github.com/ReneLarson1990/Galacti-Pong-Game.git
 
 
 ## Project Description
 
-_(Replace this text with a brief description of your game and what inspired you to make it.)_
+My plan for this game is to make 2 of my favorite games as a kid combined but also add some funny new 3d elements and make the game a bit harder to beat.
+my inspiration for this game was based on Namco's Galaga made in 1981 and Namco Atari's Pong made in 1972 which is basically the the great grand daddy of all video games. i made this game with the intention of making you feel like you were playing in a arcade game in the late 1980's to 1990's, i wanted the game to give off that retro style vibe with a bit of modernized adaptation. 
 
 
 ## Game Logic
-
-```
-XXX IMPORTANT! Replace all of this text with your own writing as you do these tasks/answer these questions THEN DELETE THIS LINE XXX
-
-The writing should describe in plain, simple language the logic of the game.
-Describe the logic involved in player decisions.
-  - What are the choices available to the player?
+This Game is based in a not so distant Galaxy. the goal of the game is to prevent the Galactic Orb from getting past you and destroying anymore planets. the enemy ship is a Galactic destroyer determined to destroy the galaxy as you know it. you are a STAX fighter from the MADSTAX fleet. your directive is to defend the galaxy at all cost. This Fight is endless and the more you score the more of the galaxy you save. send this destroyer back to its mother ship. Teach these Galactic Leeches a Lesson but stay steadfast the destroyer has a minion determined to undermine your success.
+  - What are the choices available to the player? 
+  answer: avoid the minion at all cost he is a pest. use up and down keys to pass the orb back at your enemy. use the space bar to pause and play background music.
   - What happens when the player makes a choice?
-Describe the logic that evaluates the player's victory/loss/progress status.
-```
+  answer: you either save the planet or you fail the universe bom bom booooom.
+
+the basic logic is that if the orb passes by either opponents ship a point is granted to the opposing player. if the destroyers minion attacks the orb or the player a point is granted to the destroyer.
 
 ## Deliverables
-
->Even if you have a great big idea for a game, it's important to scope this project according to what you can get done in the next two weeks. We'll refer to your project completion goal using the term **[Minimum Viable Product](https://en.wikipedia.org/wiki/Minimum_viable_product) (MVP)** -- a list of the criteria needed to "ship" a playable version of your game that meets the project requirements.
->
->*Don't lose sight of your big ideas, though! Keep a list of further improvements you can refer to as **Post-MVP Ideas**. You might finish some before our project time is done, or you might work on them later!*
->
-> For your README, delete this blockquote and fill in the lists below.
-
+what i want to deliver was a challenging yet fun experience that brings back some of those good ol childhood arcade memories and nostalgia.
 
 ### MVP Criteria
 
 - My Game needs to work properly with the AI i made to play against.
 - the score needs to be added to the side of the player or AI that won the round.
 - This Game needs to be Visually appealing and The score and hit sound effects need to work.
+- the minion needs to be randomly annoying as can be without making players quit.
 
 
 ### Post-MVP Plans
 
-- I would like to add Space junk to the game that if it collides 
-- Another that will be a stretch.
-- Something else I don't technically know how to do... *yet*. :)
+- I would like to add Space junk to the game that if it collides with the ball or player ship it awards a point to the enemy AI.
+- I want to add more levels and obstacles as i learn more in coding.
+- I do struggle with java script at the current moment so i was planning on adding a menu screen and a persistent high score board. i also wanted to add and actual AI from an API and use it to make the movement of the AI less jittery. 
 
-
-XXX IMPORTANT! USE THIS SPACE FOR THE SCHEDULE WE END UP MAKING IN CLASS AND ADD ANY PERSONAL INFO AS NEEDED. THE README IS NOT JUST A PLACE TO TELL OTHERS ABOUT THE CODE IN YOUR APP, BUT ALSO IT CAN BE A PART OF THE WAY YOU PLAN AND KEEP TRACK OF YOUR PROGRESS MAKING YOUR APP. BUT MAKE SURE TO DELETE ALL OF TEXT BELOW THIS LINE BEFORE YOU SUBMIT THE PROJECT FINALLY XXX
 
 ## Project Planning
 
 | Date | Goals |
 | ---- | ----- |
-| Mon. 05/01/2023 | used library to get starter code for the lay out of my game from geeksforgeeks.org. |
-| Wed. 05/03/2023 | made a git hub repository. edited Readme.md. |
-| Sat. 2/18 |      |
-| Mon. 2/20 |      |
-| Wed. 2/22 |      |
-| Sat. 2/25 | Deploy to GitHub Pages. Submit completed project. Project presentations. |
+| Wed. 05/03/2023 | used library to get starter code for the lay out of my game from geeksforgeeks.org. |
+| Sat. 05/06/2023 | made a git hub repository. edited Readme.md. |
+| Mon. 05/08/2023 |   Started building the game according to my plan.   |
+| Wed. 05/10/2023 |   Reached MVP and tried to complete other goals i had made for myself.   |
+| Sat. 05/13/2023 |   Deploy to GitHub Pages. Submit completed project. Project presentations.     |
 
 
+## Resources 
+i used a starter base code for my game since i am still new to java script.
+https://www.geeksforgeeks.org/pong-game-in-javascript/
 
-
-
-
-
-
+- The background music name is Birth of a hero which i found at the link bellow the license is included below.
 Royalty Free Music: Bensound.com/royalty-free-music
 License code: LDWMYXFBRUMBIDGO
+
+- the sound effects i found at a couple different locations.
+- Laser_Cannon-Mike_Koenig-797224747
+- Kid_Laugh-Mike_Koenig-1673908713
+- hahaha-Peter_De_Lang-1639076107
+- Evil_Laugh_Male_6-Himan-1359990674
+- Evil_Laugh_1-Timothy-64737261
+- Comet-SoundBible.com-1256431940
+https://soundbible.com/free-sound-effects-1.html
+- explosion effects came from the link below.
+https://www.freesoundeffects.com/free-sounds/airplane-10004/
+
+The fonts i used for this game were all found on the link below.
+https://www.dafont.com/
+- Perfect Dark by Ænigma
+- Hypik by Matt Wilson 
+- Race Space by Yahhya Anas
+
+- i used ChatGpt to help me with understanding of some of the code so that i could modify it to work the way i wanted it to with the game i was building. i also used youtube for a multitude of videos i do not remember all of the just for understanding of certain functions and to understand java script better. www.w3schools.com also had a good part of helping me understand some of the code i was writing.
+
+- The Art Work was made by MADSTAX aka Me (Rene A. Larson) 
+background image 
+AI ship 
+playership 
+the minion 
+ect. 
+i used 3d paint to build some basic components.
