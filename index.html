@@ -8,6 +8,7 @@
     <title>Galacti-Pong</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="javascript" href="./javascript.js">
+    <link rel="icon" href="./Assests/Playership1 (2).png" type="Galacti-pong icon">
 </head>
   
 <body>
@@ -15,10 +16,11 @@
   <br>
   <div class="gameintro">
     <center>
-        Welcome to Galacti-Pong. This Game is based in a not so distant Galaxy. the goal of the game is to prevent the Galactic Orb from getting past you and destroying anymore planets. the enemy ship is a Galactic destroyer determined to destroy the galaxy as you know it. you are a STAX fighter from the MADSTAX fleet. your directive is to defend the galaxy at all cost. This Fight is endless and the more you score the more of the galaxy you save. send this destroyer back to its mother ship. Teach these Galactic Leeches a Lesson.  </center>
+        Welcome to <div class="gp">Galacti-Pong.</div> This Game is based in a not so distant Galaxy. the goal of the game is to prevent the Galactic Orb from getting past you and destroying anymore planets. the enemy ship is a Galactic destroyer determined to destroy the galaxy as you know it. you are a STAX fighter from the MADSTAX fleet. your directive is to defend the galaxy at all cost. This Fight is endless and the more you score the more of the galaxy you save. send this destroyer back to its mother ship. Teach these Galactic Leeches a Lesson but stay steadfast the destroyer has a minion determined to undermine your success. </center>
     </div>
 
     <div class="board">
+        <!-- <div class="obstacle"></div> -->
         <div class='ball'>
             <div class="ball_effect"></div>
         </div>
@@ -29,7 +31,11 @@
         <h1 class="message">Press Enter to Play</h1>
     </div>
 <div class="Controls"><center>
-    <b><i>Controls:</i></b>
+    <div class="score"><b><i>Scoring System:</i></b></div>
+    <br>
+    if the orb passes by either opponents ship a point is granted. if the destroyers minion attacks the orb or the player a point is granted to the destroyer.
+    <hr>
+    <div class="cont"><b><i>Controls:</i></b></div>
     <br>
     To Start the Game after every Round Press the following key.
     <br>
@@ -42,9 +48,9 @@
     <br>
     To Play Background Music Press The Following Key.
     <br>
-    <img src="./Assests/SPACE BAR.png" alt="space key">
-    <br>
-    <b><i>NOTE:</i></b>
+    <img src="./Assests/SPACE BAR.png" alt="space key">   
+     <hr>
+    <div class="note"><b><i>NOTE:</i></b></div>
     <br>
     Future versions of this game will allow a 2nd player and other features. this Game is in a Beta Stage. Any Bugs or Errors will be Addressed when Updated.
 </center></div>
@@ -62,6 +68,9 @@
       
       <audio id="player2ScoreSound">
         <source src="./Assests/Explosion+10.wav" type="audio/mpeg">
+      </audio>
+      <audio id="collision-sound">
+        <source src="./Assests/hahaha-Peter_De_Lang-1639076107.wav" type="audio/mpeg">
       </audio>
 </body>
   

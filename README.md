@@ -70,18 +70,14 @@ Describe the logic that evaluates the player's victory/loss/progress status.
 
 ### MVP Criteria
 
-XXX IMPORTANT! Replace the text below as you list the MVP criteria you met AND THEN DELETE THIS LINE XXX
-
-- One thing my game must do to meet my minimum standard.
-- Another thing.
-- Etc.
+- My Game needs to work properly with the AI i made to play against.
+- the score needs to be added to the side of the player or AI that won the round.
+- This Game needs to be Visually appealing and The score and hit sound effects need to work.
 
 
 ### Post-MVP Plans
 
-XXX IMPORTANT! Replace the text below as you list what you would do to improve the game post-MVP AND THEN DELETE THIS LINE XXX
-
-- One great idea I hope to be able to add in before the project deadline.
+- I would like to add Space junk to the game that if it collides 
 - Another that will be a stretch.
 - Something else I don't technically know how to do... *yet*. :)
 

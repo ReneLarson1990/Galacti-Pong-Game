@@ -171,9 +171,6 @@ requestAnimationFrame(() => {
     moveBall(dx, dy, dxd, dyd);
 });
 }
-//obstacles codes 
-
-
 // background music 
 function AutoPlayBackgroundMusic() {
     let bgMusic = new Audio('./Assests/birthofahero.mp3');
@@ -187,3 +184,96 @@ function AutoPlayBackgroundMusic() {
       AutoPlayBackgroundMusic();
     }
   });
+
+  //-------------------------------------------CODE FOR OBSTACLES/spaceJunk ---------------------------------------------------
+
+const obstacle = document.createElement("div");
+obstacle.classList.add("obstacle");
+board.appendChild(obstacle);
+
+obstacle.style.top = "-15px";
+obstacle.style.left = Math.floor(Math.random() * (board - obstacle.offsetWidth)) + "px";
+
+let xDirection = Math.random() < 1.5 ? -0 : 1; // -1 is left, 1 is right
+let yDirection = 1; // Down
+let speed = 7;
+
+function updateObstaclePosition() {
+  // Get the current position of the obstacle
+  let x = obstacle.offsetLeft;
+  let y = obstacle.offsetTop;
+
+  // Update the position of the obstacle based on the direction and speed
+  x += xDirection * speed;
+  y += yDirection * speed;
+  obstacle.style.left = x + "px";
+  obstacle.style.top = y + "px";
+
+  // Check if the obstacle has collided with the player or ball
+  if (collisionDetected(obstacle, paddle_2) || collisionDetected(obstacle, ball)) {
+    document.getElementById("collision-sound").play();
+    // Give a point to player 1
+    score_1.innerHTML = parseInt(score_1.innerHTML) + 1;
+    // Reset the obstacle
+    obstacle.style.top = "0px";
+    obstacle.style.left = Math.floor(Math.random() * (board.offsetWidth - obstacle.offsetWidth)) + "px";
+    xDirection = Math.random() < 0.5 ? -1 : 1;
+    yDirection = 1;
+  }
+
+  // Check if the obstacle has exited the board
+  if (y > board.offsetHeight) {
+    // Reset the obstacle
+    obstacle.style.top = "0px";
+    obstacle.style.left = Math.floor(Math.random() * (board.offsetWidth - obstacle.offsetWidth)) + "px";
+    xDirection = Math.random() < 0.5 ? -1 : 1;
+    yDirection = 1;
+  }
+
+  // Call this function again after a short delay to update the position of the obstacle
+  
+  setTimeout(updateObstaclePosition, 0.7);
+}
+
+// Detect if two elements are colliding
+function collisionDetected(ball, paddle_2) {
+  let rect1 = ball.getBoundingClientRect();
+  let rect2 = paddle_2.getBoundingClientRect();
+  return !(
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom ||
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right
+  );
+}
+
+// Start updating the position of the obstacle
+updateObstaclePosition();
+
+
+// constant scores saved and end game code 
+
+// let highScore = localStorage.getItem('highScore') || 0;
+
+// function increaseScore() {
+//   score++;
+//   if (score >= 100) {
+//     endGame();
+//   }
+//   updateScore();
+// }
+
+// function endGame() {
+//   if (score > highScore) {
+//     highScore = score;
+//     localStorage.setItem('highScore', highScore);
+//   }
+//   alert('Congratulations! You won the game with a score of ' + score + '.');
+//   resetGame();
+// }
+
+// function resetGame() {
+//   score = 0;
+//   updateScore();
+//   // Add any other necessary reset logic here.
+// }
