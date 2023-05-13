@@ -1,6 +1,3 @@
-let bestScore = localStorage.getItem('bestScore') || 0;
-bestScoreElement.innerHTML = bestScore;
-
 let gameState = 'start';
 let paddle_1 = document.querySelector('.paddle_1');
 let paddle_2 = document.querySelector('.paddle_2');
@@ -190,20 +187,3 @@ function AutoPlayBackgroundMusic() {
       AutoPlayBackgroundMusic();
     }
   });
-
-  // Get the saved best score from localStorage, or default to 0 if it doesn't exist
-let bestScore = localStorage.getItem('bestScore') || 0;
-
-function increaseScore() {
-  score++;
-  scoreElement.innerHTML = score;
-
-  // Check if the current score is better than the best score
-  if (score > bestScore) {
-    bestScore = score;
-    bestScoreElement.innerHTML = bestScore;
-    
-    // Save the new best score to localStorage
-    localStorage.setItem('bestScore', bestScore);
-  }
-}
