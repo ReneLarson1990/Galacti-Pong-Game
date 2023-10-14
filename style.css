@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -223,7 +223,7 @@ body {
       height: 100px;
       background-position: center;
       border-radius: 50px;
-}
+} */
 
 
 /* game over */
